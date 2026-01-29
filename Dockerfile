@@ -19,7 +19,7 @@ COPY . /app
 RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-X 'main.Version=${Version}'" -o /octolint cmd/octolint.go
 
 # Create the execution image
-FROM alpine:latest
+FROM alpine:3.23.3
 
 COPY --from=build /octolint /octolint
 
